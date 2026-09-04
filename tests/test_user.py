@@ -9,12 +9,12 @@ from app.Oauth2 import SECRET,ALGORITHM
 
 def test_create_user(client):
     response=client.post(
-        '/register', json = {"email":"rakhi@gmail.com","password":"pass123"})
+        '/register', json = {"email":"tester@gmail.com","password":"pass123"})
 
     # this line is usefull for validating the response body -- can be removed test would still work 
     new_user = models.UserResponse(**response.json())
  
-    assert new_user.email == "rakhi@gmail.com"
+    assert new_user.email == "tester@gmail.com"
     assert response.status_code == 201
 
 def test_login_user(client,test_user):
